@@ -72,3 +72,5 @@ class TestPraktikum:
                 'praktikum.praktikum',
                 run_name='__main__'
             )
+
+        assert mock_burger_class.called
