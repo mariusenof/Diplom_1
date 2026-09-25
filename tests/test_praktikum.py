@@ -39,13 +39,13 @@ class TestPraktikum:
         mock_burger.add_ingredient.assert_any_call(ingredients[3])
         mock_burger.add_ingredient.assert_any_call(ingredients[5])
 
-        assert mock_burger.add_ingredient.call_count == 4
-
         mock_burger.move_ingredient.assert_called_once_with(2, 1)
         mock_burger.remove_ingredient.assert_called_once_with(3)
 
         mock_burger.get_receipt.assert_called_once()
         mock_print.assert_called_once_with('receipt')
+
+        assert mock_burger.add_ingredient.call_count == 4
 
     @patch('praktikum.database.Database')
     @patch('praktikum.burger.Burger')
