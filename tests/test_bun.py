@@ -6,15 +6,27 @@ from praktikum.bun import Bun
 class TestBun:
 
     @pytest.mark.parametrize(
-        'name,price',
+        'name',
         [
-            ('Black bun', 100),
-            ('White bun', 200.5),
-            ('Red bun', 0),
+            'Black bun',
+            'White bun',
+            'Red bun',
         ]
     )
-    def test_bun_get_name_and_price_returns_correct_values(self, name, price):
-        bun = Bun(name, price)
+    def test_get_name_returns_correct_name(self, name):
+        bun = Bun(name, 100)
 
         assert bun.get_name() == name
+
+    @pytest.mark.parametrize(
+        'price',
+        [
+            100,
+            200.5,
+            0,
+        ]
+    )
+    def test_get_price_returns_correct_price(self, price):
+        bun = Bun('Black bun', price)
+
         assert bun.get_price() == price
